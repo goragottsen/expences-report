@@ -4,8 +4,8 @@ const Expenses = () => {
 
     return (
         <>
-        <h1>Expenses</h1>
-        <ExpensesTable />
+            <h1>Expenses</h1>
+            <ExpensesTable />
         </>
     )
 }

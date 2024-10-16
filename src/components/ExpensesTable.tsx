@@ -67,8 +67,8 @@ const ExpensesTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                {transactions.map((row) => (
-                    <tr key={row.id}>
+                    {transactions.map((row) => (
+                        <tr key={row.id}>
                             <CellWrapper data-label="ID">{row.id}</CellWrapper>
                             <CellWrapper data-label="Date">{formatDate(row.date)}</CellWrapper>
                             <CellWrapper data-label="Amount">£{row.amount.toFixed(2)}</CellWrapper>
