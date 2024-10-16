@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useFetchData from '../hooks/useFetchData';
 import { format } from 'date-fns';
-import { CellWrapper, TableHeader } from './styles';
+import { CellWrapper } from './styles';
 
 
 interface IItem {
@@ -37,9 +37,9 @@ const ExpensesTable = () => {
     const [transactions, setTransactions] = useState<IItem[]>([]);
 
     useEffect(() => {
-            if (data && data.transactions) {
-                setTransactions(data.transactions);
-            }
+        if (data && data.transactions) {
+            setTransactions(data.transactions);
+        }
     }, [data]);
 
     if (loading) {
@@ -55,16 +55,16 @@ const ExpensesTable = () => {
     }
 
     return (
-        <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }} aria-label="expenses table">
+        <div style={{ overflowX: 'auto', maxWidth: '100%', margin: '24px' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '600px' }} aria-label="expenses table">
                 <thead>
-                    <TableHeader>
+                    <tr style={{ backgroundColor: 'lightgrey' }}>
                         <CellWrapper scope="col">ID</CellWrapper>
                         <CellWrapper scope="col">Date</CellWrapper>
                         <CellWrapper scope="col">Amount</CellWrapper>
                         <CellWrapper scope="col">Merchant</CellWrapper>
                         <CellWrapper scope="col">Category</CellWrapper>
-                    </TableHeader>
+                    </tr>
                 </thead>
                 <tbody>
                 {transactions.map((row) => (
